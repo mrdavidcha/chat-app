@@ -17,7 +17,6 @@ export const action = async ({ request }: ActionArgs) => {
 
 export default function Index() {
   const data = useActionData();
-  // const formatedData = data?.res.split('\n');
   console.log('data res', data?.res);
 
   return (
