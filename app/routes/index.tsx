@@ -72,7 +72,7 @@ export default function Index() {
             </Form>
           </div>
         </div>
-        <div className="max-w-screen-md text-xl text-gray-400 p-6 flex-1">
+        <div className="max-w-screen-md text-xl text-gray-400 p-6 py-9 flex-1">
           {
             data?.res?.map((answer) => (
               <p className='pt-2' key={answer}>
