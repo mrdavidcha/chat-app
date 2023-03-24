@@ -18,8 +18,7 @@ export const action = async ({ request }: ActionArgs) => {
 
 export default function Index() {
   const data = useActionData();
-
-  const [dark, setDark] = useState(false)
+  const [isLightMode, setIsLightMode] = useState(false);
 
   const handleDarkmodeSelect = () => {
     const htmlElement = document.querySelector(':root');
@@ -32,24 +31,15 @@ export default function Index() {
       htmlElement?.classList.add('dark');
     }
 
-    // Whenever the user explicitly chooses light mode.
-    localStorage.theme = 'light';
-
-    // Whenever the user explicitly chooses dark mode.
-    localStorage.theme = 'dark';
-
-    // Whenever the user explicitly chooses to respect the OS preference.
-    localStorage.removeItem('theme');
-
-    const isDark = htmlElement?.classList.contains('dark') ?? false;
-    setDark(isDark);
+    const lightMode = htmlElement?.classList.contains('dark') ?? false;
+    setIsLightMode(lightMode);
   }
 
   return (
     <div className="container mx-auto p-4 py-6">
       <div className="flex flex-row p-6 justify-end">
         <button type="button" className="text-sm p-1 text-stone-400 mt-4 cursor-pointer" onClick={() => handleDarkmodeSelect()}>
-          Switch to { dark ? 'Light Mode ☀️' : 'Dark Mode 🌌' }
+          Switch to { isLightMode ? 'Light Mode ☀️' : 'Dark Mode 🌌' }
         </button>
       </div>
       <div className="flex flex-row p-6">
