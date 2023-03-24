@@ -48,8 +48,8 @@ export default function Index() {
   return (
     <div className="container mx-auto p-4 py-6">
       <div className="flex flex-row p-6 justify-end">
-        <button type="button" className="text-xs p-1 text-stone-400 mt-4" onClick={() => handleDarkmodeSelect()}>
-          { dark ? 'Switch to Light Mode ☀️' : 'Switch to Dark Mode 🌌' }
+        <button type="button" className="text-sm p-1 text-stone-400 mt-4 cursor-pointer" onClick={() => handleDarkmodeSelect()}>
+          Switch to { dark ? 'Light Mode ☀️' : 'Dark Mode 🌌' }
         </button>
       </div>
       <div className="flex flex-row p-6">
@@ -74,8 +74,8 @@ export default function Index() {
         </div>
         <div className="max-w-screen-md text-xl text-gray-400 p-6 py-9 flex-1">
           {
-            data?.res?.map((answer) => (
-              <p className='pt-2' key={answer}>
+            data?.res?.map((answer: String) => (
+              <p className='pt-2' key={`${answer}`}>
                 {answer}
               </p>
             ))
